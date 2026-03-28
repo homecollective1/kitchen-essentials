@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitchen Essentials - Amazon Curated</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Sora', sans-serif;
+            background: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 80px 40px;
+            text-align: center;
+            border-bottom: 1px solid #e8e8e8;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: #e8f4f8;
+            color: #0891b2;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+        }
+
+        .header p {
+            font-size: 1.15rem;
+            color: #666;
+            margin-bottom: 0;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+
+        /* Main Content Padding */
+        .content {
+            padding: 60px 40px;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+            margin-bottom: 60px;
+        }
+
+        .product-box {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #f0f0f0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: fadeInUp 0.6s ease-out backwards;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-box:nth-child(1) { animation-delay: 0.08s; }
+        .product-box:nth-child(2) { animation-delay: 0.16s; }
+        .product-box:nth-child(3) { animation-delay: 0.24s; }
+        .product-box:nth-child(4) { animation-delay: 0.32s; }
+        .product-box:nth-child(5) { animation-delay: 0.4s; }
+        .product-box:nth-child(6) { animation-delay: 0.48s; }
+        .product-box:nth-child(7) { animation-delay: 0.56s; }
+        .product-box:nth-child(8) { animation-delay: 0.64s; }
+        .product-box:nth-child(9) { animation-delay: 0.72s; }
+        .product-box:nth-child(10) { animation-delay: 0.8s; }
+        .product-box:nth-child(11) { animation-delay: 0.88s; }
+        .product-box:nth-child(12) { animation-delay: 0.96s; }
+        .product-box:nth-child(13) { animation-delay: 1.04s; }
+        .product-box:nth-child(14) { animation-delay: 1.12s; }
+        .product-box:nth-child(15) { animation-delay: 1.2s; }
+        .product-box:nth-child(16) { animation-delay: 1.28s; }
+        .product-box:nth-child(17) { animation-delay: 1.36s; }
+        .product-box:nth-child(18) { animation-delay: 1.44s; }
+        .product-box:nth-child(19) { animation-delay: 1.52s; }
+        .product-box:nth-child(20) { animation-delay: 1.6s; }
+
+        .product-box:hover {
+            border-color: #e0e0e0;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+            transform: translateY(-8px);
+        }
+
+        /* Color variants for each product box */
+        .product-box:nth-child(1) { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); }
+        .product-box:nth-child(2) { background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); }
+        .product-box:nth-child(3) { background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%); }
+        .product-box:nth-child(4) { background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); }
+        .product-box:nth-child(5) { background: linear-gradient(135deg, #fecaca 0%, #fca5a5 100%); }
+        .product-box:nth-child(6) { background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%); }
+        .product-box:nth-child(7) { background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%); }
+        .product-box:nth-child(8) { background: linear-gradient(135deg, #d1d5db 0%, #9ca3af 100%); }
+        .product-box:nth-child(9) { background: linear-gradient(135deg, #c2e0c6 0%, #9edd9a 100%); }
+        .product-box:nth-child(10) { background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%); }
+        .product-box:nth-child(11) { background: linear-gradient(135deg, #e0e7ff 0%, #ddd6fe 100%); }
+        .product-box:nth-child(12) { background: linear-gradient(135deg, #bfdbfe 0%, #93c5fd 100%); }
+        .product-box:nth-child(13) { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); }
+        .product-box:nth-child(14) { background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); }
+        .product-box:nth-child(15) { background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%); }
+        .product-box:nth-child(16) { background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); }
+        .product-box:nth-child(17) { background: linear-gradient(135deg, #fecaca 0%, #fca5a5 100%); }
+        .product-box:nth-child(18) { background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%); }
+        .product-box:nth-child(19) { background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%); }
+        .product-box:nth-child(20) { background: linear-gradient(135deg, #d1d5db 0%, #9ca3af 100%); }
+
+        .product-image-container {
+            width: 100%;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            padding: 20px;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .product-content {
+            padding: 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            background: white;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+            line-height: 1.3;
+        }
+
+        .product-desc {
+            font-size: 0.92rem;
+            color: #666;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .product-features li {
+            font-size: 0.88rem;
+            color: #555;
+            padding: 5px 0;
+            padding-left: 22px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .product-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #0891b2;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #0891b2;
+            color: white;
+            padding: 11px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.88rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            letter-spacing: 0.3px;
+            align-self: flex-start;
+        }
+
+        .cta-button:hover {
+            background: #0e7490;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(8, 145, 178, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: #f8f9fa;
+            padding: 50px 40px;
+            text-align: center;
+            border-top: 1px solid #e8e8e8;
+            color: #666;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
+        }
+
+        .footer p {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .footer-divider {
+            width: 50px;
+            height: 3px;
+            background: #0891b2;
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 50px 25px;
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .content, .footer {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-bottom: 40px;
+            }
+
+            .product-content {
+                padding: 20px;
+            }
+
+            .product-title {
+                font-size: 1.15rem;
+            }
+
+            .product-features li {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-badge">✨ AMAZON CURATED COLLECTION</div>
+        <h1>Kitchen Essentials</h1>
+        <p>Everything You Need to Cook Like a Pro</p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div class="products-grid">
+            <!-- Product 1 - Spice Jars -->
+            <div class="product-box">
+                <div class="product-image-container">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/71Qr0DLfkbL._AC_SL1500_.jpg" alt="Spice Jars" class="product-image">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Glass Spice Jars Set</h3>
+                    <p class="product-desc">24 pcs glass jars with bamboo lids and labels</p>
+                    <ul class="product-features">
+                        <li>Airtight bamboo lids</li>
+                        <li>Minimalist farmhouse design</li>
+                        <li>Includes labels and funnel</li>
+                    </ul>
+                    <a href="https://www.amazon.com/NETANY-Pcs-Spice-Jars-Labels/dp/B09FXXDGRJ/" target="_blank" class="cta-button">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 2 - Butter Dish -->
+            <div class="product-box">
+                <div class="product-image-container">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/71W8OE5aJjL._AC_SL1500_.jpg" alt="Butter Dish" class="product-image">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Ceramic Butter Dish</h3>
+                    <p class="product-desc">6.5" large butter keeper with silicone sealing</p>
+                    <ul class="product-features">
+                        <li>Holds up to 3 sticks</li>
+                        <li>High-quality silicone seal</li>
+                        <li>Ceramic construction</li>
+                    </ul>
+                    <a href="https://www.amazon.com/DOWAN-Butter-Ceramic-Countertop-Sticks/dp/B07WNV847W/" target="_blank" class="cta-button">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 3 - Oven Mitts -->
+            <div class="product-box">
+                <div class="product-image-container">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/81E9W4pV7cL._AC_SL1500_.jpg" alt="Oven Mitts" class="product-image">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">KitchenAid Gingham Oven Mitts</h3>
+                    <p class="product-desc">2-pack set in adorable gingham pattern</p>
+                    <ul class="product-features">
+                        <li>7"x13" size</li>
+                        <li>Heat-resistant material</li>
+                        <li>Stylish design</li>
+                    </ul>
+                    <a href="https://www.amazon.com/KitchenAid-Gingham-Oven-2-Pack-Milkshake/dp/B0BMLJC311/" target="_blank" class="cta-button">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 4 - Soap Dispensers -->
+            <div class="product-box">
+                <div class="product-image-container">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/81KJ2CJJMJL._AC_SL1500_.jpg" alt="Soap Dispensers" class="product-image">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Gold Glass Soap Dispensers</h3>
+                    <p class="product-desc">Modern kitchen counter decor set</p>
+                    <ul class="product-features">
+                        <li>Glass construction</li>
+                        <li>Stainless steel pump</li>
+                        <li>Gold finish</li>
+                    </ul>
+                    <a href="https://www.amazon.com/dp/B0CTML1MNC/" target="_blank" class="cta-button">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 5 - Measuring Cups & Spoons -->
+            <div class="product-box">
+                <div class="product-image-container">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/81uZF0OTAHL._AC_SL1500_.jpg" alt="Measuring Cups" class="product-image">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Gold Measuring Cups & Spoons</h3>
+                    <p class="product-desc">Set of 8 with wood handles and metric measurements</p>
+                    <ul class="product-features">
+                        <li>Premium stainless steel</li>
+                        <li>Gold polished finish</li>
+                        <li>Dry & liquid measurements</li>
+                    </ul>
+                    <a href="https://www.amazon.com/GuDoQi-Measuring-Measurements-Stainless-Polished/dp/B09M2XFGD5/" target="_blank" class="cta-button">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 6 - Baking Sheets -->
+            <div class="product-box">
+                <div class="product-image-container">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/81nPLBKKVoL._AC_SL1500_.jpg" alt="Baking Sheets" class="product-image">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Nordic Ware Baking Sheet Set</h3>
+                    <p class="product-desc">3-piece USA made aluminum commercial quality</p>
+                    <ul class="product-features">
+                        <li>Half, jelly roll & quarter sheet</li>
+                        <li>Galvanized steel rim</li>
+                        <li>Prevents warping</li>
+                    </ul>
+                    <a href="https://www.amazon.com/Nordic-Ware-43174-Delight-Aluminum/dp/B079Q671Q5" target="_blank" class="cta-button">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 7 - Dishwasher Sign -->
+            <div class="product-box">
+                <div class="product-image-container">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/71JKFPK4XBL._AC_SL1500_.jpg" alt="Dishwasher Sign" class="product-image">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Dishwasher Magnet Sign</h3>
+                    <p class="product-desc">Stainless steel clean/dirty indicator</p>
+                    <ul class="product-features">
+                        <li>Easy slider design</li>
+                        <li>Modern kitchen organizer</li>
+                        <li>Durable stainless steel</li>
+                    </ul>
+                    <a href="https://www.amazon.com/dp/B0FT356JCN/" target="_blank" class="cta-button">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 8 - Oil Dispensers -->
+            <div class="product-box">
+                <div class="product-image-container">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/81jQv3fQ9XL._AC_SL1500_.jpg" alt="Oil Dispensers" class="product-image">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Olive Oil Dispenser Bottles</h3>
+                    <p class="product-desc">2-piece set with 55 kitchen labels included</p>
+                    <ul class="product-features">
+                        <li>11.8 fl oz glass container</li>
+                        <li>Pourer spout design</li>
+                        <li>Gold finish</li>
+                    </ul>
+                    <a href="https://www.amazon.com/Spaceneat-Dispenser-Bottle-Kitchen-Coffee/dp/B0BT7P7HXR/" target="_blank" class="cta-button">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 9 - Salt & Pepper Mills -->
+            <div class="product-box">
+                <div class="product-image-container">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/81PBPK2NVOL._AC_SL1500_.jpg" alt="Salt and Pepper Mills" class="product-image">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Acacia Salt & Pepper Grinder Set</h3>
+                    <p class="product-desc">2-pack with adjustable coarseness</p>
+                    <ul class="product-features">
+                        <li>8 inch wooden design</li>
+                        <li>Ceramic core</li>
+                        <li>Refillable mills</li>
+                    </ul>
+                    <a href="https://www.amazon.com/Refillable-Adjustable-Coarseness-Peppercorn-Tableware/dp/B0F6MSD58L/" target="_blank" class="cta-button">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 10 - Can Opener -->
+            <div class="product-box">
+                <div class="product-image-container">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/81_B7TxzKKL._AC_SL1500_.jpg" alt="Can Opener" class="product-image">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Cuisinart Electric Can Opener</h3>
+                    <p class="product-desc">One-touch operation with magnetic lid holder</p>
+                    <ul class="product-features">
+                        <li>Automatic opening</li>
+                        <li>Easy clean design</li>
+                        <li>Nonslip base</li>
+                    </ul>
+                    <a href="https://www.amazon.com/dp/B001C2F5NW/" target="_blank" class="cta-button">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 11 - Vegetable Slicer -->
+            <div class="product-box">
+                <div class="product-image-container">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/91FT8E5H7ZL._AC_SL1500_.jpg" alt="Vegetable Slicer" class="product-image">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Mueller Vegetable Chopper</h3>
+                    <p class="product-desc">Mandoline slicer 10 in 1 with container</p>
+                    <ul class="product-features">
+                        <li>8 blade food chopper</li>
+                        <li>Onion vegetable cutter</li>
+                        <li>With storage container</li>
+                    </ul>
+                    <a href="https://www.amazon.com/Mueller-Austria-Vegetable-Chopper-Mandoline/dp/B08N9Q24M9/" target="_blank" class="cta-button">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 12 - Garlic Press -->
+            <div class="product-box">
+                <div class="product-image-container">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/81J62IkyOTL._AC_SL1500_.jpg" alt="Garlic Press" class="product-image">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Zulay Garlic Press</h3>
+                    <p class="product-desc">Premium garlic mincer with peeler and brush</p>
+                    <ul class="product-features">
+                        <li>Rust proof design</li>
+                        <li>Easy-clean features</li>
+                        <li>Ergonomic handle</li>
+                    </ul>
+                    <a href="https://www.amazon.com/Garlic-Press-Easy-Squeeze-Ergonomic-Professional/dp/B07N7KFHVH/" target="_blank" class="cta-button">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 13 - Chicken Shredder -->
+            <div class="product-box">
+                <div class="product-image-container">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/81VNO5mKPeL._AC_SL1500_.jpg" alt="Chicken Shredder" class="product-image">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Chicken Shredder Tool</h3>
+                    <p class="product-desc">10" pro twist shredder for meat</p>
+                    <ul class="product-features">
+                        <li>BPA-free food-safe</li>
+                        <li>Anti-slip bottom</li>
+                        <li>Ergonomic handle</li>
+                    </ul>
+                    <a href="https://www.amazon.com/Shredder-BPA-Free-Food-Safe-Anti-Slip-Ergonomic/dp/B0FGTHYPYC/" target="_blank" class="cta-button">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 14 - Colander Set -->
+            <div class="product-box">
+                <div class="product-image-container">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/81YIr0qSVqL._AC_SL1500_.jpg" alt="Colander" class="product-image">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Metal Colander Set of 3</h3>
+                    <p class="product-desc">Strainer basket for pasta and vegetables</p>
+                    <ul class="product-features">
+                        <li>Solid base design</li>
+                        <li>Powder coated finish</li>
+                        <li>1, 3.5 & 5 Qt sizes</li>
+                    </ul>
+                    <a href="https://www.amazon.com/Colander-Strainer-Spaghetti-Vegetable-Essential/dp/B0CP3JG6GG/" target="_blank" class="cta-button">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 15 - Dish Drying Mat -->
+            <div class="product-box">
+                <div class="product-image-container">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/81E2KXSAHWL._AC_SL1500_.jpg" alt="Drying Mat" class="product-image">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Stone Dish Drying Mat</h3>
+                    <p class="product-desc">Large absorbent collapsible mat 24"x16"</p>
+                    <ul class="product-features">
+                        <li>Diatomaceous earth</li>
+                        <li>Quick dry design</li>
+                        <li>Collapsible storage</li>
+                    </ul>
+                    <a href="https://www.amazon.com/Absorbent-Collapsible-Diatomaceous-Countertop-24/dp/B0DQCLH35Q/" target="_blank" class="cta-button">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 16 - Storage Containers -->
+            <div class="product-box">
+                <div class="product-image-container">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/81pKW0TBDXL._AC_SL1500_.jpg" alt="Storage Containers" class="product-image">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Airtight Food Storage Set</h3>
+                    <p class="product-desc">Vtopmart 24-piece container set with labels</p>
+                    <ul class="product-features">
+                        <li>BPA-free plastic</li>
+                        <li>Pantry organization</li>
+                        <li>Includes 24 labels</li>
+                    </ul>
+                    <a href="https://www.amazon.com/Airtight-Containers-Vtopmart-Organization-Canisters/dp/B08ZK5WDWN/" target="_blank" class="cta-button">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 17 - Cabinet Liner -->
+            <div class="product-box">
+                <div class="product-image-container">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/71h0TqPWh8L._AC_SL1500_.jpg" alt="Cabinet Liner" class="product-image">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Gorilla Grip Drawer Liner</h3>
+                    <p class="product-desc">12" x 10' non-adhesive shelf liner</p>
+                    <ul class="product-features">
+                        <li>Thick strong hold</li>
+                        <li>Breathable mat</li>
+                        <li>Easy install</li>
+                    </ul>
+                    <a href="https://www.amazon.com/Gorilla-Grip-Drawer-Shelf-Liners/dp/B07W7MG36T/" target="_blank" class="cta-button">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 18 - Dutch Oven -->
+            <div class="product-box">
+                <div class="product-image-container">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/81XALk2PPZL._AC_SL1500_.jpg" alt="Dutch Oven" class="product-image">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Enameled Cast Iron Dutch Oven</h3>
+                    <p class="product-desc">6QT bread baking pot with sourdough supplies</p>
+                    <ul class="product-features">
+                        <li>For bread baking</li>
+                        <li>Includes accessories</li>
+                        <li>Latte color</li>
+                    </ul>
+                    <a href="https://www.amazon.com/VORRINGARD-Enameled-include-Sourdough-Supplies/dp/B0DQ3TDQ8B/" target="_blank" class="cta-button">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 19 - Paper Towel Holder -->
+            <div class="product-box">
+                <div class="product-image-container">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/81rYlKcgcXL._AC_SL1500_.jpg" alt="Paper Towel Holder" class="product-image">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">Gold Paper Towel Holder</h3>
+                    <p class="product-desc">Countertop organizer in modern design</p>
+                    <ul class="product-features">
+                        <li>Stainless steel</li>
+                        <li>Gold finish</li>
+                        <li>Elegant design</li>
+                    </ul>
+                    <a href="https://www.amazon.com/Paper-Towel-Holder-Countertop-OBODING/dp/B09WJ2C2NR/" target="_blank" class="cta-button">Shop Now</a>
+                </div>
+            </div>
+
+            <!-- Product 20 - Utensil Holder -->
+            <div class="product-box">
+                <div class="product-image-container">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/81CJfHPmZaL._AC_SL1500_.jpg" alt="Utensil Holder" class="product-image">
+                </div>
+                <div class="product-content">
+                    <h3 class="product-title">TAUCI Ceramic Utensil Holder</h3>
+                    <p class="product-desc">Set of 2 embossed kitchen organizers</p>
+                    <ul class="product-features">
+                        <li>Ceramic construction</li>
+                        <li>Large and small sizes</li>
+                        <li>Embossed design</li>
+                    </ul>
+                    <a href="https://www.amazon.com/TAUCI-Utensil-Ceramic-Kitchen-Embossed/dp/B0FF497DW5/" target="_blank" class="cta-button">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p><strong>Kitchen Essentials</strong></p>
+        <div class="footer-divider"></div>
+        <p>All products are Amazon verified with 4+ star customer ratings</p>
+        <p style="margin-top: 20px; font-size: 0.85rem; color: #999;">
+            Affiliate links • Free shipping on eligible items • Same-day delivery available in select areas
+        </p>
+    </div>
+</body>
+</html>
